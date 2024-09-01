@@ -1,2 +1,2 @@
-# -Semana-10-Tarea
+# Tareas fundamentos de programacion
 Universidad Estatal Amazonica
