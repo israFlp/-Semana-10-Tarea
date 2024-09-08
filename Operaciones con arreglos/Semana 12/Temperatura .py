@@ -161,4 +161,3 @@ while True:
         for dia in semana:
             print(f"{dia['day']}: {dia['temp']}°C")
     print()
-1
