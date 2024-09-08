@@ -1,3 +1,12 @@
+"""Crear una matriz 3D que represente los datos de temperaturas diarias en varias ciudades. En una dimensión, puedes tener diferentes ciudades, en otra dimensión, días de la semana (Lunes, Martes, Miércoles, etc.), y en la tercera dimensión, semanas.
+Dentro de cada celda de la matriz, puedes almacenar las temperaturas diarias para una ciudad en un día específico de una semana determinada.
+Utilizar bucles anidados para calcular el promedio de temperaturas para una ciudad por cada una de las semanas.
+Mostrar el promedio de temperaturas para cada ciudad y semana en la pantalla."""
+
+# Crear una matriz 3D para almacenar datos de temperaturas
+# Primera dimensión: Ciudades (3 ciudades)
+# Segunda dimensión: Semanas (4 semanas)
+# Tercera dimensión: Días de la semana (7 días)
 # Datos de temperaturas
 temperaturas = [
     [   # Ciudad 1
