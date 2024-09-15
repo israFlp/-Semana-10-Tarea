@@ -151,6 +151,7 @@ while True:
           calcular_promedio(temperaturas[1])
      elif opcion == "3":
          print("promedio de temperatura para ciudad 3:")
+         calcular_promedio(temperaturas[2])
      elif opcion == "4":
          print("salir del programa:")
          break
