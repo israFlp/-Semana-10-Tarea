@@ -125,48 +125,36 @@ temperaturas = [
     ]
 ]
 
-# Calcular el promedio de temperaturas para cada ciudad y semana
-promedios = []
-
-for i, ciudad in enumerate(temperaturas):
-    promedios_ciudad = []
-    for semana in ciudad:
-        suma = sum(dia['temp'] for dia in semana)
+# funcion para calcular el promedio de temperaturas por semana
+def calcular_promedio(cuidad):
+    for semana_index, semana in enumerate(cuidad, start=1):
+        suma = sum(dia["temp"] for dia in semana)
         promedio = suma / len(semana)
-        promedios_ciudad.append(promedio)
-    promedios.append(promedios_ciudad)
+        print(f"{semana_index}: Promedio de temperatura: {promedio:.2f}°F")
 
-# Mostrar los promedios
-for i, ciudad_promedios in enumerate(promedios):
-    print(f"Promedios de temperaturas para Ciudad {i + 1}:")
-    for semana_num, promedio in enumerate(ciudad_promedios):
-        print(f"  Semana {semana_num + 1}: Promedio = {promedio:.2f}°C")
-    print()
 
-# Menú interactivo para seleccionar ciudad
+# Menú interactivo
 while True:
-    print("Selecciona una ciudad:")
-    print("1. Ciudad 1")
-    print("2. Ciudad 2")
-    print("3. Ciudad 3")
-    print("4. Salir")
+     print("\nseleccione una cuidad ")
+     print("1 - Ciudad 1")
+     print("2 - Ciudad 2")
+     print("3 - Ciudad 3")
+     print("4 - Salir ")
 
-    opcion = input("Ingrese la opción deseada: ")
-    if opcion == "1":
-        cuidad = temperaturas[0]
-    elif opcion == "2":
-        cuidad = temperaturas[1]
-    elif opcion == "3":
-        cuidad = temperaturas[2]
-    elif opcion == "4":
-        break
-    else:
-        print("Opción no válida. Intente de nuevo.")
-        continue
+     opcion = input("Ingrese la opcion de que cuidad quiero el promedio: ")
 
-    # Mostrar los datos seleccionados
-    for i, semana in enumerate(cuidad):
-        print(f"\nSemana {i + 1}:")
-        for dia in semana:
-            print(f"{dia['day']}: {dia['temp']}°C")
-    print()
+     if opcion == "1":
+         print("promedio de temperatura para ciudad 1:")
+         calcular_promedio(temperaturas[0])
+     elif opcion == "2":
+          print("promedio de temperatura para ciudad 2:")
+          calcular_promedio(temperaturas[1])
+     elif opcion == "3":
+         print("promedio de temperatura para ciudad 3:")
+     elif opcion == "4":
+         print("salir del programa:")
+         break
+     else:
+         print("Opción no valida, intente nuevamente.")
+
+
