@@ -9,8 +9,8 @@ Mostrar el promedio de temperaturas para cada ciudad y semana en la pantalla."""
 # Tercera dimensión: Días de la semana (7 días)
 # Datos de temperaturas
 temperaturas = [
-    [   # Ciudad 1
-        [   # Semana 1
+    [  # Ciudad 1
+        [  # Semana 1
             {"day": "Lunes", "temp": 78},
             {"day": "Martes", "temp": 80},
             {"day": "Miércoles", "temp": 82},
@@ -19,7 +19,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 88},
             {"day": "Domingo", "temp": 92}
         ],
-        [   # Semana 2
+        [  # Semana 2
             {"day": "Lunes", "temp": 76},
             {"day": "Martes", "temp": 79},
             {"day": "Miércoles", "temp": 83},
@@ -28,7 +28,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 89},
             {"day": "Domingo", "temp": 93}
         ],
-        [   # Semana 3
+        [  # Semana 3
             {"day": "Lunes", "temp": 77},
             {"day": "Martes", "temp": 81},
             {"day": "Miércoles", "temp": 85},
@@ -37,7 +37,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 91},
             {"day": "Domingo", "temp": 95}
         ],
-        [   # Semana 4
+        [  # Semana 4
             {"day": "Lunes", "temp": 75},
             {"day": "Martes", "temp": 78},
             {"day": "Miércoles", "temp": 80},
@@ -47,8 +47,8 @@ temperaturas = [
             {"day": "Domingo", "temp": 91}
         ]
     ],
-    [   # Ciudad 2
-        [   # Semana 1
+    [  # Ciudad 2
+        [  # Semana 1
             {"day": "Lunes", "temp": 62},
             {"day": "Martes", "temp": 64},
             {"day": "Miércoles", "temp": 68},
@@ -57,7 +57,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 75},
             {"day": "Domingo", "temp": 79}
         ],
-        [   # Semana 2
+        [  # Semana 2
             {"day": "Lunes", "temp": 63},
             {"day": "Martes", "temp": 66},
             {"day": "Miércoles", "temp": 70},
@@ -66,7 +66,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 77},
             {"day": "Domingo", "temp": 81}
         ],
-        [   # Semana 3
+        [  # Semana 3
             {"day": "Lunes", "temp": 61},
             {"day": "Martes", "temp": 65},
             {"day": "Miércoles", "temp": 68},
@@ -75,7 +75,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 76},
             {"day": "Domingo", "temp": 80}
         ],
-        [   # Semana 4
+        [  # Semana 4
             {"day": "Lunes", "temp": 64},
             {"day": "Martes", "temp": 67},
             {"day": "Miércoles", "temp": 69},
@@ -85,8 +85,8 @@ temperaturas = [
             {"day": "Domingo", "temp": 80}
         ]
     ],
-    [   # Ciudad 3
-        [   # Semana 1
+    [  # Ciudad 3
+        [  # Semana 1
             {"day": "Lunes", "temp": 90},
             {"day": "Martes", "temp": 92},
             {"day": "Miércoles", "temp": 94},
@@ -95,7 +95,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 85},
             {"day": "Domingo", "temp": 82}
         ],
-        [   # Semana 2
+        [  # Semana 2
             {"day": "Lunes", "temp": 89},
             {"day": "Martes", "temp": 91},
             {"day": "Miércoles", "temp": 93},
@@ -104,7 +104,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 84},
             {"day": "Domingo", "temp": 81}
         ],
-        [   # Semana 3
+        [  # Semana 3
             {"day": "Lunes", "temp": 91},
             {"day": "Martes", "temp": 93},
             {"day": "Miércoles", "temp": 95},
@@ -113,7 +113,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 86},
             {"day": "Domingo", "temp": 83}
         ],
-        [   # Semana 4
+        [  # Semana 4
             {"day": "Lunes", "temp": 88},
             {"day": "Martes", "temp": 90},
             {"day": "Miércoles", "temp": 92},
@@ -125,37 +125,43 @@ temperaturas = [
     ]
 ]
 
-# funcion para calcular el promedio de temperaturas por semana
-def calcular_promedio(cuidad):
-    for semana_index, semana in enumerate(cuidad, start=1):
-        suma = sum(dia["temp"] for dia in semana)
-        promedio = suma / len(semana)
-        print(f"{semana_index}: Promedio de temperatura: {promedio:.2f}°F")
 
+# funcion para calcular el promedio
+def calcular_promedio(temperaturas, cuidad_idx):
+    cuidad = temperaturas[cuidad_idx]
+    suma_temperaturas = 0
+    total_dias = 0
+
+    # recorrer las semanas
+    for semana in cuidad:
+        for dia in semana:
+            suma_temperaturas += dia['temp']
+            total_dias += 1
+
+    # calcular el promedio
+    promedio = suma_temperaturas / total_dias
+    return promedio
 
 # Menú interactivo
 while True:
-     print("\nseleccione una cuidad ")
-     print("1 - Ciudad 1")
-     print("2 - Ciudad 2")
-     print("3 - Ciudad 3")
-     print("4 - Salir ")
+    print("\nseleccione una cuidad ")
+    print("1 - Ciudad 1")
+    print("2 - Ciudad 2")
+    print("3 - Ciudad 3")
+    print("4 - Salir ")
 
-     opcion = input("Ingrese la opcion de que cuidad quiere el promedio: ")
-
-     if opcion == "1":
-         print("promedio de temperatura para ciudad 1:")
-         calcular_promedio(temperaturas[0])
-     elif opcion == "2":
-          print("promedio de temperatura para ciudad 2:")
-          calcular_promedio(temperaturas[1])
-     elif opcion == "3":
-         print("promedio de temperatura para ciudad 3:")
-         calcular_promedio(temperaturas[2])
-     elif opcion == "4":
-         print("salir del programa:")
-         break
-     else:
-         print("Opción no valida, intente nuevamente.")
-
-
+    opcion = input("Ingrese la opcion: ")
+    if opcion == "1":
+        promedio = calcular_promedio(temperaturas,cuidad_idx= 0)
+        print(f"el promedio {promedio:2f}")
+    elif opcion == "2":
+        promedio = calcular_promedio(temperaturas,cuidad_idx= 1)
+        print(f"el promedio {promedio:2f}")
+    elif opcion == "3":
+        promedio = calcular_promedio(temperaturas,cuidad_idx= 2)
+        print(f"el promedio {promedio:2f}")
+    elif opcion == "4":
+        print("salir del programa:")
+        break
+    else:
+        print("Opción no valida, intente nuevamente.")
